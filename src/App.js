@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import UserList from "./UserList";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import AddUser from "./Redux/AddUser";
+import EditUser from "./Redux/EditUser";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/add-user" element={<AddUser />} />
+          <Route path="/edit-user/:id" element={<EditUser />} />
+          <Route path="/" element={<UserList />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
